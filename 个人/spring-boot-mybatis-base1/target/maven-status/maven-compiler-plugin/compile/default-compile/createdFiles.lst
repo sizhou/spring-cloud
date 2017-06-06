@@ -1,0 +1,4 @@
+com\hand\zs\boot\controller\UBUserController.class
+com\hand\zs\boot\dao\UBUserDao.class
+com\hand\zs\boot\service\UBUserService.class
+com\hand\zs\boot\entity\UBUser.class

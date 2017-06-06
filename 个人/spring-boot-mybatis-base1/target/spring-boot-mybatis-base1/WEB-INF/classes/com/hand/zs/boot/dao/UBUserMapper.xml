@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.hand.zs.boot.dao.UBUserDao">
+
+
+	<select id="findAllUser" resultType="com.hand.zs.boot.entity.UBUser">
+		SELECT
+		ubuserId as ubuserId,
+		username as username,
+		firstName as firstName,
+		sex as sex,
+		age as age
+		FROM
+		ubuser
+	</select>
+
+	<select id="findUserById" resultType="com.hand.zs.boot.entity.UBUser">
+		SELECT
+		ubuserId as ubuserId,
+		username as username,
+		firstName as firstName,
+		sex as sex,
+		age as age
+		FROM
+		ubuser
+		WHERE ubuserId=#{userId}
+	</select>
+
+	<update id="updateUserInfoById" parameterType="com.hand.zs.boot.entity.UBUser">
+		UPDATE ubuser
+		<trim prefix="SET" suffixOverrides=",">
+			<if test="username != null and username != ''">
+				username=#{username}
+			</if>
+			<if test="firstName != null and firstName != ''">
+				firstName=#{firstName}
+			</if>
+			<if test="sex != null and sex != ''">
+				usesexrname=#{sex}
+			</if>
+		</trim>
+		where ubuserId=#{ubuserId}
+	</update>
+
+	<insert id="insertNewUser" parameterType="com.hand.zs.boot.entity.UBUser">
+		INSERT INTO ubuser
+		(username,firstName,sex,age)
+		VALUES
+		(#{username},#{firstName},#{sex},3{age})
+	</insert>
+
+
+
+</mapper>
